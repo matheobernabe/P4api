@@ -1,11 +1,11 @@
-const { User } = require("../models");
+const { User } = require("../models/User_Model");
 
 module.exports = {
     login: async (req, res) => {
         try {
-            const { email, password } = req.body;
+            const { username, password } = req.body;
            
-            const user = await User.findOne({ where: { email } });
+            const user = await User.findOne({ where: { username } });
 
 
             if (!user || !(await user.comparePassword(password))) {
