@@ -5,18 +5,18 @@ const app = express();
 
 const userRoutes = require('./routes/user_Routes'); 
 const gameRoutes = require('./routes/game_Routes'); 
+const securityRoutes = require('./routes/security_Routes');
 const authenticateJWT = require('./middleware/authMiddleware');
 const versioning = require('./middleware/versioningMiddleware');
 const validateMove = require('./middleware/gameValidationMiddleware');
 const addHateoasLinks = require('./middleware/hateoasMiddleware');
 
+
 app.use(express.json());
 
 app.use(versioning);
 
-const userRoutes = require('./routes/user_Routes');
-const gameRoutes = require('./routes/game_Routes');
-const securityRoutes = require('./routes/security_Routes');
+
 
 app.use(express.json());
 app.use('/api/security', securityRoutes);

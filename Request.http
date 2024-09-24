@@ -7,6 +7,16 @@ Content-Type: application/json
   "password": "Azerty123456!"
 }
 
+
+### POST Create User
+POST http://localhost:3000/api/users/register
+Content-Type: application/json
+
+{
+  "username": "usere1",
+  "password": "Azerty123456!"
+}
+
 ### POST Login User
 POST http://localhost:3000/api/security/login
 Content-Type: application/json
@@ -18,3 +28,11 @@ Content-Type: application/json
 
 ### GET Get User
 GET http://localhost:3000/api/users
+
+### POST Create Game
+POST http://localhost:3000/api/games/create
+Content-Type: application/json
+
+{
+  "player1Id": "3d75f5d4-3ac1-4ad0-ae34-61723ff79daf"
+}

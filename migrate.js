@@ -1,7 +1,7 @@
-const { sequelize } = require('./Api/models/db');  // Assure-toi d'importer sequelize
+const { sequelize } = require('./models/db');  
 
-// Synchronise tous les modèles avec la base de données
-sequelize.sync({ alter: true })  // Utilise sequelize pour synchroniser
+
+sequelize.sync({ alter: true })  
   .then(() => {
     console.log("Database synchronized successfully.");
     process.exit();

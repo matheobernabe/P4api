@@ -1,46 +1,38 @@
-const { Model, DataTypes } = require('sequelize');
+const { DataTypes, Model } = require('sequelize');
 
-module.exports = function GameModelGenerator(sequelize) {
-  class Game extends Model {}
+class Game extends Model {}
 
+module.exports = (sequelize) => {
   Game.init(
     {
       id: {
         type: DataTypes.UUID,
-        defaultValue: DataTypes.UUIDV4,
-        primaryKey: true,
         unique: true,
+        primaryKey: true,
+        defaultValue: DataTypes.UUIDV4,
       },
       player1Id: {
-        type: DataTypes.UUID,  
+        type: DataTypes.UUID,
         allowNull: false,
       },
       player2Id: {
-        type: DataTypes.UUID,  
-        allowNull: true,  
-      },
-      status: {
-        type: DataTypes.ENUM('pending', 'ongoing', 'finished'),
-        defaultValue: 'pending',  
-      },
-      winnerId: {
-        type: DataTypes.UUID,  
+        type: DataTypes.UUID,
         allowNull: true,
       },
-      board: {
-        type: DataTypes.JSON,  
-        defaultValue: [
-          [' ', ' ', ' ', ' ', ' ', ' ', ' '],
-          [' ', ' ', ' ', ' ', ' ', ' ', ' '],
-          [' ', ' ', ' ', ' ', ' ', ' ', ' '],
-          [' ', ' ', ' ', ' ', ' ', ' ', ' '],
-          [' ', ' ', ' ', ' ', ' ', ' ', ' '],
-          [' ', ' ', ' ', ' ', ' ', ' ', ' '],
-        ],  
+      currentPlayerId: {
+        type: DataTypes.UUID,
         allowNull: false,
       },
-      currentPlayerId: {
-        type: DataTypes.UUID,  
+      board: {
+        type: DataTypes.ARRAY(DataTypes.ARRAY(DataTypes.STRING)),
+        defaultValue: Array(6).fill(Array(7).fill(' ')),
+      },
+      status: {
+        type: DataTypes.STRING,
+        defaultValue: 'waiting',
+      },
+      winnerId: {
+        type: DataTypes.UUID,
         allowNull: true,
       },
     },

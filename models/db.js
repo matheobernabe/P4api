@@ -20,4 +20,4 @@ sequelize.authenticate()
 const Game = GameModelGenerator(sequelize);
 const User = UserModelGenerator(sequelize);
 
-module.exports = { sequelize, User };
+module.exports = { sequelize, User, Game };
