@@ -9,16 +9,15 @@ const securityRoutes = require('./routes/security_Routes');
 const authenticateJWT = require('./middleware/authMiddleware');
 const versioning = require('./middleware/versioningMiddleware');
 const validateMove = require('./middleware/gameValidationMiddleware');
-const addHateoasLinks = require('./middleware/hateoasMiddleware');
-
+const Hateoas = require('./middleware/hateoasMiddleware');
+const i18n = require('./middleware/translation');
 
 app.use(express.json());
 
+app.use(i18n);
+app.use(Hateoas);
 app.use(versioning);
 
-
-
-app.use(express.json());
 app.use('/api/security', securityRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/games', gameRoutes);
@@ -33,10 +32,6 @@ app.post('/api/move', validateMove, (req, res) => {
   res.json({ message: 'Coup valide dans Puissance 4' });
 });
 
-app.get('/api/games/:gameId', addHateoasLinks, (req, res) => {
-  const game = { id: req.params.gameId, name: 'Puissance 4' };
-  res.json({ game, links: res.locals.links });
-});
 
 app.get('/', (req, res) => {
   res.json({ message: 'API Puissance 4 est opérationnelle !' });
