@@ -1,5 +1,6 @@
-const { DataTypes } = require('sequelize');
 const sequelize = require('./db');
+
+const { DataTypes } = require('sequelize');
 
 const Game = sequelize.define('Game', {
   grid: {

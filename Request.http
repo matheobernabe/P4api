@@ -1,13 +1,8 @@
-POST http://localhost:3000/
+### POST Create User
+POST http://localhost:3000/register
 Content-Type: application/json
-    {
-        "username": "test",
-        "password": "test"
-    }
 
-
-
-#### Register
-curl -X POST http://localhost:3000/register \
--H "Content-Type: application/json" \
--d '{"username":"user1", "password":"password1"}'
+{
+  "username": "user1",
+  "password": "password1"
+}
