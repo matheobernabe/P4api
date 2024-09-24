@@ -6,8 +6,6 @@ Content-Type: application/json
   "username": "usere2",
   "password": "Azerty123456!"
 }
-
-
 ### POST Create User
 POST http://localhost:3000/api/users/register
 Content-Type: application/json
@@ -35,4 +33,35 @@ Content-Type: application/json
 
 {
   "player1Id": "3d75f5d4-3ac1-4ad0-ae34-61723ff79daf"
+}
+
+### POST Join Game 
+POST http://localhost:3000/api/games/join
+Content-Type: application/json
+
+{
+  "player2Id": "d2ba8ed7-cab1-4940-8e1a-5b5b83bccc09",
+  "gameId": "191da100-008d-4a70-9c88-845941f32f0a"
+}
+
+### GET Get Game List
+GET http://localhost:3000/api/games
+
+### POST Play Turn
+POST http://localhost:3000/api/games/play
+Content-Type: application/json
+
+{
+  "gameId": "191da100-008d-4a70-9c88-845941f32f0a",
+  "playerId": "3d75f5d4-3ac1-4ad0-ae34-61723ff79daf",
+  "column": 2
+}
+### POST Play Turn
+POST http://localhost:3000/api/games/play
+Content-Type: application/json
+
+{
+  "gameId": "191da100-008d-4a70-9c88-845941f32f0a",
+  "playerId": "d2ba8ed7-cab1-4940-8e1a-5b5b83bccc09",
+  "column": 3
 }

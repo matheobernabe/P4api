@@ -24,11 +24,11 @@ module.exports = (sequelize) => {
         allowNull: false,
       },
       board: {
-        type: DataTypes.ARRAY(DataTypes.ARRAY(DataTypes.STRING)),
-        defaultValue: Array(6).fill(Array(7).fill(' ')),
+        type: DataTypes.JSONB,
+        defaultValue: Array(6).fill().map(() => Array(7).fill(' ')),
       },
       status: {
-        type: DataTypes.STRING,
+        type: DataTypes.ENUM('waiting', 'ongoing', 'finished'),
         defaultValue: 'waiting',
       },
       winnerId: {
