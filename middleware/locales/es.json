@@ -1,0 +1,14 @@
+{
+    "game_title": "Conecta 4",
+    "new_game": "Nuevo Juego",
+    "play": "Jugar",
+    "turn": "Turno",
+    "player": "Jugador",
+    "move": "Movimiento",
+    "invalid_move": "Movimiento inválido",
+    "full_column": "Columna llena",
+    "victory": "Victoria",
+    "tie": "Empate",
+    "restart": "Reiniciar",
+    "quit": "Abandonar"
+}

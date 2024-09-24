@@ -1,0 +1,17 @@
+
+    {
+        "game_title": "Puissance 4",
+        "new_game": "Nouvelle partie",
+        "play": "Jouer",
+        "turn": "Tour de jeu",
+        "player": "Joueur",
+        "move": "Coup",
+        "invalid_move": "Coup invalide",
+        "full_column": "Colonne pleine",
+        "victory": "Victoire",
+        "tie": "Égalité",
+        "restart": "Recommencer",
+        "quit": "Abandonner"
+      }
+      
+

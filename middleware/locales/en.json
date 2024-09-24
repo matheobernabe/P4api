@@ -1,0 +1,14 @@
+{
+    "game_title": "Connect Four",
+    "new_game": "New Game",
+    "play": "Play",
+    "turn": "Turn",
+    "player": "Player",
+    "move": "Move",
+    "invalid_move": "Invalid Move",
+    "full_column": "Full Column",
+    "victory": "Victory",
+    "tie": "Tie",
+    "restart": "Restart",
+    "quit": "Quit"
+}
