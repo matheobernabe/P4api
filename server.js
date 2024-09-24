@@ -2,11 +2,13 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 const userRoutes = require('./routes/user_Routes');
+const gameRoutes = require('./routes/game_Routes');
 const securityRoutes = require('./routes/security_Routes');
 
 app.use(express.json());
 app.use('/api/security', securityRoutes);
 app.use('/api/users', userRoutes);
+app.use('/api/games', gameRoutes);
 
 app.get('/', (req, res) => {
   res.json({ message: 'API Puissance 4 est opérationnelle !' });
