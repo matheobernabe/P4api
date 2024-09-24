@@ -6,7 +6,7 @@ module.exports = {
           const user = await User.create(req.body);
           res.status(201).json(user);
         } catch (error) {
-          next(error);
+          res.status(500).json({ error: error.message });
         }
       },
         
