@@ -1,8 +1,8 @@
 ### POST Create User
-POST http://localhost:5001/register
+POST http://localhost:3000/api/users/register
 Content-Type: application/json
 
 {
-  "username": "user1",
+  "username": "user2",
   "password": "password1"
 }
