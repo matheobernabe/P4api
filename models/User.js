@@ -1,24 +1,42 @@
-const { DataTypes } = require('sequelize');
-const sequelize = require('./db');
+const { Model, DataTypes } = require("sequelize");
+const bcrypt = require("bcryptjs");
 
-const User = sequelize.define('User', {
-  username: {
-    type: DataTypes.STRING,
-    allowNull: false,
-    unique: true,
-  },
-  email: {
-    type: DataTypes.STRING,
-    allowNull: false,
-    unique: true,
-    validate: {
-      isEmail: true,
+module.exports = function UserModelGenerator(connection) {
+  class User extends Model {}
+
+  User.init(
+    {
+      username: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true,
+      },
+      id: {
+        type: DataTypes.STRING,
+        unique: true,
+        primaryKey: true,
+        defaultValue: DataTypes.UUIDV4,
+      },
+      password: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          len: 8,
+          is: /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^a-zA-Z0-9])/,
+        },
+      },
     },
-  },
-  password: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-});
+    {
+      sequelize: connection,
+    }
+  );
 
-module.exports = User;
+  User.addHook("beforeCreate", async (user) => {
+    user.password = await bcrypt.hash(user.password, await bcrypt.genSalt(10));
+  });
+  User.addHook("beforeUpdate", async (user) => {
+    user.password = await bcrypt.hash(user.password, await bcrypt.genSalt(10));
+    });
+
+  return User;
+};
