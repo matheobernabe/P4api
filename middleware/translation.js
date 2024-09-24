@@ -1,20 +1,18 @@
-const i18n = require('i18n');
 const express = require('express');
+const i18n = require('i18n');
 const app = express();
 
-// Configuration de la traduction
 i18n.configure({
-    locales: ['en', 'fr'],
+    locales: ['en', 'fr', 'es'],
     directory: __dirname + '/locales',
-    defaultLocale: 'en',
-    cookie: 'lang'
+    defaultLocale: 'fr',
+    queryParameter: 'lang',
 });
 
 app.use(i18n.init);
 
-// Exemple de route
 app.get('/', (req, res) => {
-    res.send(res.__('Hello'));
+    res.send(res.__(''));
 });
 
 app.listen(3000, () => {
