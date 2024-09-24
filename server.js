@@ -14,7 +14,14 @@ app.use(express.json());
 
 app.use(versioning);
 
+const userRoutes = require('./routes/user_Routes');
+const gameRoutes = require('./routes/game_Routes');
+const securityRoutes = require('./routes/security_Routes');
+
+app.use(express.json());
+app.use('/api/security', securityRoutes);
 app.use('/api/users', userRoutes);
+app.use('/api/games', gameRoutes);
 
 app.get('/protected', authenticateJWT, (req, res) => {
   res.json({ message: 'Vous êtes authentifié', user: req.user });
