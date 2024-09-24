@@ -18,7 +18,7 @@ Content-Type: application/json
 ### POST Login User
 POST http://localhost:3000/api/security/login
 Content-Type: application/json
-
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiIzZDc1ZjVkNC0zYWMxLTRhZDAtYWUzNC02MTcyM2ZmNzlkYWYiLCJpYXQiOjE3MjcyMTAxMTV9.qYSi_oTttZwJUk9LHZRvgABhS4fDI0ht8WjiNPsh15w
 {
   "username": "usere2",
   "password" : "Azerty123456!"
@@ -41,7 +41,7 @@ Content-Type: application/json
 
 {
   "player2Id": "d2ba8ed7-cab1-4940-8e1a-5b5b83bccc09",
-  "gameId": "191da100-008d-4a70-9c88-845941f32f0a"
+  "gameId": "2e36a347-06bc-432c-97c6-2f13771a8c36"
 }
 
 ### GET Get Game List
@@ -49,10 +49,11 @@ GET http://localhost:3000/api/games
 
 ### POST Play Turn
 POST http://localhost:3000/api/games/play
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiIzZDc1ZjVkNC0zYWMxLTRhZDAtYWUzNC02MTcyM2ZmNzlkYWYiLCJpYXQiOjE3MjcyMTAxMTV9.qYSi_oTttZwJUk9LHZRvgABhS4fDI0ht8WjiNPsh15w
 Content-Type: application/json
 
 {
-  "gameId": "191da100-008d-4a70-9c88-845941f32f0a",
+  "gameId": "2e36a347-06bc-432c-97c6-2f13771a8c36",
   "playerId": "3d75f5d4-3ac1-4ad0-ae34-61723ff79daf",
   "column": 2
 }
@@ -61,7 +62,7 @@ POST http://localhost:3000/api/games/play
 Content-Type: application/json
 
 {
-  "gameId": "191da100-008d-4a70-9c88-845941f32f0a",
+  "gameId": "2e36a347-06bc-432c-97c6-2f13771a8c36",
   "playerId": "d2ba8ed7-cab1-4940-8e1a-5b5b83bccc09",
   "column": 3
 }

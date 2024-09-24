@@ -137,14 +137,14 @@ module.exports = {
       if (hasWon) {
         game.status = 'finished';
         game.winnerId = game.currentPlayerId;
-        await game.save({ fields: ['board', 'currentPlayerId', 'status', 'winnerId'] }); // Ensure only the necessary fields are updated
+        await game.save({ fields: ['board', 'currentPlayerId', 'status', 'winnerId'] }); 
         return res.status(200).json({ game, message: `Player ${game.currentPlayerId} has won!` });
       } else {
         game.currentPlayerId = game.currentPlayerId === game.player1Id ? game.player2Id : game.player1Id;
       }
 
       game.board = board;
-      await game.save({ fields: ['board', 'currentPlayerId'] }); // Ensure only the necessary fields are updated
+      await game.save({ fields: ['board', 'currentPlayerId'] }); 
 
       res.status(200).json(game);
     } catch (error) {
