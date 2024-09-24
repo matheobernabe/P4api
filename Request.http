@@ -1,4 +1,4 @@
-POST http://localhost:5001/
+POST http://localhost:3000/
 Content-Type: application/json
     {
         "username": "test",
@@ -8,6 +8,6 @@ Content-Type: application/json
 
 
 #### Register
-curl -X POST http://localhost:3000/ \
+curl -X POST http://localhost:3000/register \
 -H "Content-Type: application/json" \
 -d '{"username":"user1", "password":"password1"}'

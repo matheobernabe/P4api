@@ -3,9 +3,11 @@ const express = require('express');
 const app = express();
 const authRoutes = require('./routes/auth');
 const gameRoutes = require('./routes/games');
+const userRoutes = require('./routes/user');
 
 app.use('/api/auth', authRoutes);
 app.use('/api/games', gameRoutes);
+app.use('/api/users', userRoutes);
 app.use(express.json()); 
 
 app.get('/', (req, res) => {
