@@ -1,5 +1,5 @@
 const { Model, DataTypes } = require("sequelize");
-const bcrypt = require("bcryptjs");
+const bcrypt = require("bcrypt");
 
 module.exports = function UserModelGenerator(connection) {
   class User extends Model {}
