@@ -1,5 +1,5 @@
 require("dotenv").config();
-const { db } = require("./models/db");
+const db  = require("./models/db");
 
 db.sync({ alter: true })
   .then(() => console.log("Database synced"))
