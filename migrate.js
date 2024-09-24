@@ -1,11 +1,12 @@
-require("dotenv").config();
-const db  = require("./models/db");
+const { sequelize } = require('./Api/models/db');  // Assure-toi d'importer sequelize
 
-db.sync({ alter: true })
-  .then(() => console.log("Database synced"))
-  .then(() => db.close());
-
-
-  // pour update la base de donnée : "node migrate.js" dans le terminal
-
-  
+// Synchronise tous les modèles avec la base de données
+sequelize.sync({ alter: true })  // Utilise sequelize pour synchroniser
+  .then(() => {
+    console.log("Database synchronized successfully.");
+    process.exit();
+  })
+  .catch((error) => {
+    console.error("Error synchronizing the database:", error);
+    process.exit(1);
+  });
