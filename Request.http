@@ -15,3 +15,6 @@ Content-Type: application/json
   "username": "usere2",
   "password" : "Azerty123456!"
 }
+
+### GET Get User
+GET http://localhost:3000/api/users

@@ -6,4 +6,7 @@ router.post('/register', (req, res) =>{
     console.log(req.body);
     userController.post(req, res);
 });
+router.get('', (req, res) =>{
+    userController.getall(req, res);
+});
 module.exports = router;
